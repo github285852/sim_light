@@ -16,6 +16,7 @@ def print_hi(name):
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 def set_led_color(widget,r,g,b):
+    str2 = ""
     str_style = (u"border: 2px solid #8f8f91;\n" 
                  "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
                              "                            stop: 0 #f6f700, stop: 1 #dadbde);\n"

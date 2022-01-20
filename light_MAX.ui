@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>659</width>
-    <height>536</height>
+    <width>715</width>
+    <height>556</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(0, 0, 0)</string>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
@@ -27,18 +30,17 @@
      <widget class="QPushButton" name="led_1">
       <property name="styleSheet">
        <string notr="true">border: 2px solid #8f8f91;
-/*
+
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                             stop: 0 #f6f7fa, stop: 1 #dadbde);
-*/
-/*background-color:rgb(255, 89, 255);*/
+
+background-color:;
 width:80px;
 height:80px;
 
-border: 2px solid rgb(170, 255, 0);
+border: 2px solid rgb(200, 198, 194);
 border-radius: 40px;
-text-align: center;
-</string>
+text-align: center;</string>
       </property>
       <property name="text">
        <string/>
@@ -106,15 +108,17 @@ text-align: center;
      <widget class="QPushButton" name="led_2">
       <property name="styleSheet">
        <string notr="true">border: 2px solid #8f8f91;
+
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                             stop: 0 #f6f7fa, stop: 1 #dadbde);
+
+background-color:;
 width:80px;
 height:80px;
 
-border: 0px solid #e4007e;
+border: 2px solid rgb(200, 198, 194);
 border-radius: 40px;
-text-align: center;
-</string>
+text-align: center;</string>
       </property>
       <property name="text">
        <string/>
@@ -234,20 +238,20 @@ text-align: center;
      <widget class="QLabel" name="led_3">
       <property name="styleSheet">
        <string notr="true">border: 2px solid #8f8f91;
-/*
+
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                             stop: 0 #f6f7fa, stop: 1 #dadbde);
-*/
-background-color:rgb(255, 89, 255);
+
+background-color:;
 width:80px;
 height:80px;
 
-border: 2px solid rgb(170, 255, 0);
+border: 2px solid rgb(200, 198, 194);
 border-radius: 40px;
 text-align: center;</string>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
     </item>

@@ -3,6 +3,17 @@ from ui_light_MAX import Ui_Dialog
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QColor
 
+from ctypes import *
+
+#定义c库里面的结构体数据
+class c_hsi(Structure):
+    _fields_ = [('h', c_short),
+                ('s', c_float),
+                ('i', c_float)]
+
+
+
+
 def set_led_color(widget,r,g,b):
     str_bgc = "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\nstop: 0 rgb(" + str(r) + "," + str(g) + "," + str(b) + "), stop: 1 #dadbde);\n"
     str_style = (
@@ -35,8 +46,16 @@ class LightThread(QThread):
         self.ledColor[led] = color
         self.led_update.emit(self.ledColor)
 
-    def run(self):
+    def Cctout(self,kvn,grn,dim):
+        cct = cdll.LoadLibrary("./ext_c/libcct.so")
+        hsi = c_hsi()
+        cct.CCT_to_HSI(kvn,grn,pointer(hsi))
+        print(hsi.h)
+        print(hsi.s)
+        print(hsi.i)
 
+    def run(self):
+        self.Cctout(2500,0,1)
         while True:
             self.HsiOut("led_1",0,1,0.9)
             self.sleep(1)
@@ -87,8 +106,12 @@ class LightMax(QMainWindow):
         str_bgc = "background-color: rgb(" + str(r) + "," + str(g) + "," + str(b) + ");\n"
         # str_bgc = "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\nstop: 0 rgb(" + str(r) + "," + str(g) + "," + str(b) + "), stop: 1 #dadbde);\n"
         str_style = (
-
-            )
+            u"width:80px;\n"
+            "height:80px;\n"
+            "\n"
+            "border: 0px solid #000000;\n"
+            "border-radius: 40px;\n"
+            "")
         led_widget = eval("self.ui."+led)
         led_widget.setStyleSheet(str_style + str_bgc)
 
